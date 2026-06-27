@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="820" viewBox="0 0 1400 820" role="img" aria-labelledby="title desc">
+  <title id="title">Live 3D Anaglyph Generator setup and result overview</title>
+  <desc id="desc">Infographic showing how to generate a live red/cyan 3D preview from two browser cameras. Camera media streams by WebRTC into an admin browser, the anaglyph is generated locally, and the final PNG downloads without storing images on the server.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#030407"/>
+      <stop offset="0.48" stop-color="#0a0b10"/>
+      <stop offset="1" stop-color="#000000"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#14161d"/>
+      <stop offset="1" stop-color="#08090d"/>
+    </linearGradient>
+    <linearGradient id="cyan" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#00f5ff"/>
+      <stop offset="1" stop-color="#00a6ff"/>
+    </linearGradient>
+    <linearGradient id="red" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff365e"/>
+      <stop offset="1" stop-color="#ff143d"/>
+    </linearGradient>
+    <filter id="softGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="18" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <marker id="arrowCyan" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#00d9ff"/>
+    </marker>
+    <marker id="arrowRed" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#ff335a"/>
+    </marker>
+    <marker id="arrowWhite" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#f7fbff"/>
+    </marker>
+  </defs>
+
+  <rect width="1400" height="820" fill="url(#bg)"/>
+  <circle cx="1090" cy="114" r="220" fill="#003d5d" opacity="0.42" filter="url(#softGlow)"/>
+  <circle cx="248" cy="694" r="210" fill="#4d0012" opacity="0.34" filter="url(#softGlow)"/>
+
+  <text x="80" y="88" fill="#f7fbff" font-family="Inter, Arial, sans-serif" font-size="48" font-weight="700" letter-spacing="0">
+    Live 3D Anaglyph Generator
+  </text>
+  <text x="80" y="128" fill="#a7b0bb" font-family="Inter, Arial, sans-serif" font-size="20">
+    Generate a live red/cyan 3D preview from two browser cameras.
+  </text>
+
+  <g transform="translate(80 190)">
+    <rect x="0" y="0" width="300" height="245" rx="20" fill="url(#panel)" stroke="#262a34"/>
+    <rect x="42" y="36" width="216" height="128" rx="12" fill="#030407" stroke="#323846"/>
+    <circle cx="150" cy="100" r="42" fill="none" stroke="#00d9ff" stroke-width="12" opacity="0.84"/>
+    <circle cx="150" cy="100" r="20" fill="#00d9ff" opacity="0.18"/>
+    <text x="32" y="198" fill="#f7fbff" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">Camera A / Left</text>
+    <text x="32" y="226" fill="#a7b0bb" font-family="Inter, Arial, sans-serif" font-size="16">Phone, tablet, or browser camera</text>
+  </g>
+
+  <g transform="translate(80 492)">
+    <rect x="0" y="0" width="300" height="245" rx="20" fill="url(#panel)" stroke="#262a34"/>
+    <rect x="42" y="36" width="216" height="128" rx="12" fill="#030407" stroke="#323846"/>
+    <circle cx="150" cy="100" r="42" fill="none" stroke="#ff335a" stroke-width="12" opacity="0.84"/>
+    <circle cx="150" cy="100" r="20" fill="#ff335a" opacity="0.18"/>
+    <text x="32" y="198" fill="#f7fbff" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">Camera B / Right</text>
+    <text x="32" y="226" fill="#a7b0bb" font-family="Inter, Arial, sans-serif" font-size="16">Second viewpoint for stereo depth</text>
+  </g>
+
+  <path d="M 400 286 C 470 286, 510 260, 570 260" fill="none" stroke="#00d9ff" stroke-width="5" marker-end="url(#arrowCyan)"/>
+  <path d="M 400 588 C 470 588, 510 620, 570 620" fill="none" stroke="#ff335a" stroke-width="5" marker-end="url(#arrowRed)"/>
+  <text x="422" y="246" fill="#00d9ff" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">WebRTC media</text>
+  <text x="422" y="636" fill="#ff335a" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">WebRTC media</text>
+
+  <g transform="translate(560 220)">
+    <rect x="0" y="0" width="420" height="410" rx="24" fill="url(#panel)" stroke="#343946"/>
+    <rect x="36" y="44" width="348" height="210" rx="14" fill="#020306" stroke="#3a4050"/>
+    <g transform="translate(116 78)">
+      <path d="M 78 18 L 170 68 L 170 166 L 78 216 L -14 166 L -14 68 Z" fill="none" stroke="#ff244e" stroke-width="12" opacity="0.74"/>
+      <path d="M 108 18 L 200 68 L 200 166 L 108 216 L 16 166 L 16 68 Z" fill="none" stroke="#00d9ff" stroke-width="12" opacity="0.74"/>
+      <path d="M 94 42 L 176 86 L 176 154 L 94 198 L 12 154 L 12 86 Z" fill="#f7fbff" opacity="0.08"/>
+    </g>
+    <text x="36" y="306" fill="#f7fbff" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700">Admin Preview</text>
+    <text x="36" y="338" fill="#a7b0bb" font-family="Inter, Arial, sans-serif" font-size="17">Live red/cyan anaglyph from both frames</text>
+    <g transform="translate(36 364)">
+      <rect x="0" y="0" width="88" height="30" rx="15" fill="#10141c" stroke="#303746"/>
+      <text x="18" y="21" fill="#f7fbff" font-family="Inter, Arial, sans-serif" font-size="14">Shift</text>
+      <rect x="104" y="0" width="92" height="30" rx="15" fill="#10141c" stroke="#303746"/>
+      <text x="122" y="21" fill="#f7fbff" font-family="Inter, Arial, sans-serif" font-size="14">Dubois</text>
+      <rect x="212" y="0" width="118" height="30" rx="15" fill="#10141c" stroke="#303746"/>
+      <text x="230" y="21" fill="#f7fbff" font-family="Inter, Arial, sans-serif" font-size="14">Auto-Align</text>
+    </g>
+  </g>
+
+  <g transform="translate(612 674)">
+    <rect x="0" y="0" width="320" height="76" rx="18" fill="#08090d" stroke="#303746"/>
+    <text x="24" y="31" fill="#f7fbff" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">Final Result</text>
+    <text x="24" y="56" fill="#a7b0bb" font-family="Inter, Arial, sans-serif" font-size="16">Download: anaglyph-3d.png</text>
+  </g>
+  <path d="M 770 632 L 770 668" fill="none" stroke="#f7fbff" stroke-width="4" marker-end="url(#arrowWhite)" opacity="0.86"/>
+
+  <g transform="translate(1038 226)">
+    <rect x="0" y="0" width="282" height="178" rx="20" fill="#090b10" stroke="#303746"/>
+    <text x="28" y="42" fill="#f7fbff" font-family="Inter, Arial, sans-serif" font-size="23" font-weight="700">PHP Signaling</text>
+    <text x="28" y="78" fill="#a7b0bb" font-family="Inter, Arial, sans-serif" font-size="16">Room ID</text>
+    <text x="28" y="104" fill="#a7b0bb" font-family="Inter, Arial, sans-serif" font-size="16">Offers / Answers</text>
+    <text x="28" y="130" fill="#a7b0bb" font-family="Inter, Arial, sans-serif" font-size="16">ICE Candidates</text>
+    <text x="28" y="156" fill="#00d9ff" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">No image storage</text>
+  </g>
+
+  <path d="M 980 338 C 1014 338, 1016 315, 1032 315" fill="none" stroke="#f7fbff" stroke-width="3" stroke-dasharray="9 8" marker-end="url(#arrowWhite)" opacity="0.62"/>
+  <path d="M 1032 370 C 1008 370, 1002 390, 982 390" fill="none" stroke="#f7fbff" stroke-width="3" stroke-dasharray="9 8" marker-end="url(#arrowWhite)" opacity="0.62"/>
+
+  <g transform="translate(1038 468)">
+    <rect x="0" y="0" width="282" height="182" rx="20" fill="#090b10" stroke="#303746"/>
+    <text x="28" y="42" fill="#f7fbff" font-family="Inter, Arial, sans-serif" font-size="23" font-weight="700">Use With Glasses</text>
+    <text x="28" y="78" fill="#a7b0bb" font-family="Inter, Arial, sans-serif" font-size="16">Left eye: red filter</text>
+    <text x="28" y="104" fill="#a7b0bb" font-family="Inter, Arial, sans-serif" font-size="16">Right eye: cyan filter</text>
+    <text x="28" y="130" fill="#a7b0bb" font-family="Inter, Arial, sans-serif" font-size="16">Tune shift until the</text>
+    <text x="28" y="156" fill="#a7b0bb" font-family="Inter, Arial, sans-serif" font-size="16">main subject is comfortable</text>
+  </g>
+
+  <g transform="translate(80 770)">
+    <circle cx="9" cy="9" r="9" fill="#00d9ff"/>
+    <text x="30" y="15" fill="#a7b0bb" font-family="Inter, Arial, sans-serif" font-size="15">Media flows peer-to-peer via WebRTC when possible.</text>
+    <circle cx="390" cy="9" r="9" fill="#ff335a"/>
+    <text x="411" y="15" fill="#a7b0bb" font-family="Inter, Arial, sans-serif" font-size="15">Only temporary signaling JSON touches the server.</text>
+  </g>
+</svg>

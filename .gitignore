@@ -1,0 +1,26 @@
+# Local editor and IDE state
+.idea/
+.vscode/
+*.code-workspace
+
+# Local deployment, credentials and environment files
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Runtime signaling data
+data/*
+!data/.htaccess
+!data/.keep
+
+# Generated or legacy image output folders
+captures/
+previews/
+
+# OS and tool noise
+.DS_Store
+Thumbs.db
+*.log
