@@ -215,3 +215,7 @@ Before deploying publicly:
 - Keep `data/.htaccess` in place so the signaling files are not web-readable.
 - Do not add logging of request bodies to the web server for this path.
 - Use the generated room links and avoid sharing them publicly.
+
+## License
+
+MIT License. See [LICENSE](LICENSE).
